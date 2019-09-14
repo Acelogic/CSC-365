@@ -14,11 +14,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.Map.Entry;
 
-
-
-
 public class Parser {
-
     public static String grabWebPage() throws IOException {
         Document webDoc = Jsoup.connect("https://en.wikipedia.org/wiki/Steve_Jobs").userAgent("Mozilla").data("name", "jsoup").get();
         Elements webElements = webDoc.select("div#mw-content-text");

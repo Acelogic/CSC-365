@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ed162a3-7aeb-452e-95b7-2eeee720ca01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Assignment1/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Assignment1/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TFIDF.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TFIDF/TFIDF.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TFIDF/TermFrequencyTesting.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TFIDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TFIDF/TFIDF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TermFrequencyTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TFIDF/TermFrequencyTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Assignment1/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Assignment1/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Assignment1/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Assignment1/Parser.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +100,7 @@
       <updated>1568445630606</updated>
       <workItem from="1568445631976" duration="156000" />
       <workItem from="1568445799605" duration="423000" />
-      <workItem from="1568446465609" duration="1078000" />
+      <workItem from="1568446465609" duration="1581000" />
     </task>
     <servers />
   </component>
