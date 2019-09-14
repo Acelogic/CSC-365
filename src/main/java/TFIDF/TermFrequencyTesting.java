@@ -1,3 +1,7 @@
+package TFIDF;
+
+import TFIDF.TFIDF;
+
 import java.util.*;
 
 public class TermFrequencyTesting {
