@@ -1,6 +1,4 @@
-package TFIDF;
-
-import TFIDF.TFIDF;
+package SimilarityMetric;
 
 import java.util.*;
 
@@ -29,7 +27,7 @@ public class TermFrequencyTesting {
         dList.add(d1);
         dList.add(d2);
 
-        TFIDF inst1 = new TFIDF(d1, dList);
+      /*  TFIDF inst1 = new TFIDF(d1, dList);
         TFIDF inst2 = new TFIDF(d2, dList);
 
 
@@ -43,7 +41,7 @@ public class TermFrequencyTesting {
         // idf calculation
         System.out.println("IDF CALCULATION");
         System.out.println(inst1.calcIDF("example"));
-        System.out.println(inst2.calcIDF("example"));
+        System.out.println(inst2.calcIDF("exmaple"));
         System.out.println("--------------------------");
 
         //tfidf calculation
@@ -51,6 +49,6 @@ public class TermFrequencyTesting {
         System.out.println(inst1.calcTFIDF("example"));
         System.out.println(inst2.calcTFIDF("example"));
 
-
+*/
     }
 }
