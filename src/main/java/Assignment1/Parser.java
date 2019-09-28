@@ -1,3 +1,4 @@
+
 package Assignment1;
 
 import SimilarityMetric.TFIDF;
@@ -6,81 +7,68 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Hashtable;
 
 
 public class Parser {
 
-    public Parser() {
+    private ArrayList<String> urlList;
+    private ArrayList<String> wordList;
+    private String url;
 
+
+    public Parser(String url, ArrayList urlList) throws IOException {
+        this.url = url;
+        this.urlList = urlList;
+        wordList = populateWordList();
 
     }
 
-    public ArrayList<String> getWebPage(String urls) throws IOException {
-        Document webDoc = Jsoup.connect(urls).userAgent("Mozilla").get();//List of words/terms
-
+    //gets the words from the webpage div
+    private ArrayList<String> populateWordList() throws IOException {
+        Document webDoc = Jsoup.connect(url).userAgent("Mozilla").get();//List of words/terms
         Elements termsList = webDoc.select("div#mw-content-text");
-        ArrayList<String> words = null;
-        for (Element e : termsList) {
-            String regularExpression = "\\W+";  //* \\s+ *//*
-            words = new ArrayList<>(Arrays.asList(e.text().split(regularExpression)));
-        }
-        return words;
-
-
+        termsList.text();
+        wordList = new ArrayList<>(Arrays.asList(termsList.text().split("[^a-zA-Z]+"))); // \\W+
+        return wordList;
     }
 
+   /* private void cache() throws IOException {
+        Document doc = Jsoup.connect(url).get();
+        BufferedWriter writer = null;
+        writer = new BufferedWriter(new FileWriter("d://test.txt"));
+        writer.write(doc.text());
+    }*/
 
-    // Returns TFIDF for word in documents
-    public Hashtable<String, Hashtable<String,Double>> getTFIDF(ArrayList<String> urlList, String term) throws IOException {
-        SimilarityMetric.TFIDF tfidfCalculator;
+    public HashTable getHashTable() throws IOException {
 
-        Hashtable<String, ArrayList<String>> Doc_Table = new Hashtable<>();
-        Hashtable<String, Double> TFIDF_Table = new Hashtable<>();
+        ArrayList<Word> wordObjList = new ArrayList<>();
+        HashTable ht = new HashTable();
+        for (int i = 0; i < wordList.size(); i++) {
+            wordObjList.add(new Word(wordList.get(i), new TFIDF(wordList, urlList).tfidf(wordList.get(i))));
 
-        Hashtable<String, Hashtable<String, Double >> finalTable = new Hashtable<>();
-
-
-        for (String url : urlList) {
-            // getWebPage(url) -> ArrayList<String>
-            tfidfCalculator = new SimilarityMetric.TFIDF(getWebPage(url), urlList);
-
-            //Debug
-            /*
-            System.out.println("The Term: " + "(" + term + ")" + " in -> " + url);
-            System.out.println("TF: " + tfidfCalculator.tf(term));
-            System.out.println("IDF: " + tfidfCalculator.idf(term));
-            System.out.println("TFIDF: " + tfidfCalculator.tfidf(term));
-            System.out.println("Word Frequency: " + tfidfCalculator.getWordFrequency());
-            System.out.println("isTermContained?: " + tfidfCalculator.getContainsTerm());
-            System.out.println("Docs Containing Term: " + tfidfCalculator.getDocsContainingTerm());
-            System.out.println("----------------------------------------------");
-*/
-            // Populating HashTables
-
-            //Maps Actual Links with Arrays of words corresponding to the link  <String htmlLinks, ArrayList<String> words>
-            Doc_Table.put(url, getWebPage(url));   // www , list.get(0)
-
-            // For each String inside of the Value of the Hashtable holding array
-            for (String e : Doc_Table.get(url)) {
-                tfidfCalculator.tfidf(e);
-                TFIDF_Table.put(e, tfidfCalculator.tfidf(e));
-
-                //
-                finalTable.put(url, TFIDF_Table);
-            }
-
-
-
+            ht.put(wordObjList.get(i));
         }
-        return finalTable;
+
+        return ht;
     }
+
+    public ArrayList<String> getWordList() {
+        return wordList;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public ArrayList<String> getUrlList() {
+        return urlList;
+    }
+
 }
-
-
-
