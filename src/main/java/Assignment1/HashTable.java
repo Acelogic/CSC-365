@@ -57,7 +57,7 @@ public class HashTable {
             return;
         }
 
-        LinkedList<Word>[] resizedList = new LinkedList[hTable.length * 2];
+        LinkedList<Word>[] resizedList = new LinkedList[hTable.length * 2]; //
 
 
         for (int i = 0; i < resizedList.length; i++) {

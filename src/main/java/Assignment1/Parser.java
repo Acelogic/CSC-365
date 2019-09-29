@@ -1,74 +1,55 @@
 
 package Assignment1;
 
-import SimilarityMetric.TFIDF;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
 public class Parser {
 
-    private ArrayList<String> urlList;
     private ArrayList<String> wordList;
+    private ArrayList<String> urlList;
+    private DocumentList<ArrayList<String>> documentList;
     private String url;
 
 
-    public Parser(String url, ArrayList urlList) throws IOException {
+    public Parser(String url) throws IOException {
         this.url = url;
-        this.urlList = urlList;
-        wordList = populateWordList();
+        populateWordList();
 
+    }
+
+    public Parser(ArrayList<String> urlList) throws IOException{
+        this.urlList = urlList;
+        populateDocList();
     }
 
     //gets the words from the webpage div
-    private ArrayList<String> populateWordList() throws IOException {
+    private void populateWordList() throws IOException {
         Document webDoc = Jsoup.connect(url).userAgent("Mozilla").get();//List of words/terms
         Elements termsList = webDoc.select("div#mw-content-text");
-        termsList.text();
         wordList = new ArrayList<>(Arrays.asList(termsList.text().split("[^a-zA-Z]+"))); // \\W+
-        return wordList;
     }
 
-   /* private void cache() throws IOException {
-        Document doc = Jsoup.connect(url).get();
-        BufferedWriter writer = null;
-        writer = new BufferedWriter(new FileWriter("d://test.txt"));
-        writer.write(doc.text());
-    }*/
-
-    public HashTable getHashTable() throws IOException {
-
-        ArrayList<Word> wordObjList = new ArrayList<>();
-        HashTable ht = new HashTable();
-        for (int i = 0; i < wordList.size(); i++) {
-            wordObjList.add(new Word(wordList.get(i), new TFIDF(wordList, urlList).tfidf(wordList.get(i))));
-
-            ht.put(wordObjList.get(i));
+    private void populateDocList() throws IOException{
+        DocumentList<ArrayList<String>> dList = new DocumentList<>();
+        for(String url: urlList) {
+            Document webDoc = Jsoup.connect(url).userAgent("Mozilla").get();//List of words/terms
+            Elements termsList = webDoc.select("div#mw-content-text");
+            dList.add(new ArrayList<>(Arrays.asList(termsList.text().split("[^a-zA-Z]+")))); // \\W+);
         }
-
-        return ht;
+        documentList = dList;
     }
-
-    public ArrayList<String> getWordList() {
+    public ArrayList<String> getWordList(){
         return wordList;
     }
 
-    public String getUrl() {
-        return url;
+    public DocumentList<ArrayList<String>> getDocList(){
+        return documentList;
     }
-
-    public ArrayList<String> getUrlList() {
-        return urlList;
-    }
-
 }
