@@ -75,12 +75,12 @@ public class TFIDF {
 
     public double tfidf(String term) throws IOException {
         double tfidfResult = tf(term) * idf(term);
-        /*if (tfidfResult < 0) {
+        if (tfidfResult < 0) {
             throw new IOException("Something is wrong with maths");
         } else {
             return tf(term) * idf(term);
-        }*/
+        }
 
-        return tfidfResult;
+        //return tfidfResult;
     }
 }
