@@ -19,34 +19,29 @@ public class CosineTest {
     public static void main(String[] args) throws IOException {
 
         Instant start = Instant.now();
-        DecimalFormat df = new DecimalFormat("0");
-        df.setMaximumFractionDigits(20);
 
-        ArrayList<String> urlList = new ArrayList<>(20);
 
-        urlList.add("https://en.wikipedia.org/wiki/Google");
-        urlList.add("https://simple.wikipedia.org/wiki/Shave");
-        urlList.add("https://simple.wikipedia.org/wiki/Google)");
+        ArrayList<String> urlList = new ArrayList<>();
         urlList.add("https://en.wikipedia.org/wiki/Android_(operating_system)");
-        urlList.add("https://simple.wikipedia.org/wiki/Apple_Inc.");
-        urlList.add("https://simple.wikipedia.org/wiki/Nintendo");
-        urlList.add("https://simple.wikipedia.org/wiki/Mario");
-        urlList.add("https://simple.wikipedia.org/wiki/Luigi");
-        urlList.add("https://en.wikipedia.org/wiki/Sonic_the_Hedgehog");
-        urlList.add("https://en.wikipedia.org/wiki/space");
+        urlList.add("https://en.wikipedia.org/wiki/Apple_Inc.");
+        urlList.add("https://en.wikipedia.org/wiki/Nintendo");
+        urlList.add("https://en.wikipedia.org/wiki/Mario");
+        urlList.add("https://en.wikipedia.org/wiki/Linux");
+        urlList.add("https://en.wikipedia.org/wiki/Google");
+        urlList.add("https://en.wikipedia.org/wiki/Google_Play");
+        urlList.add("https://en.wikipedia.org/wiki/Space");
         urlList.add("https://en.wikipedia.org/wiki/World_War_1");
-        urlList.add("https://en.wikipedia.org/wiki/Lion");
+        urlList.add("https://en.wikipedia.org/wiki/Thinkpad");
         urlList.add("https://en.wikipedia.org/wiki/Tiger");
-        urlList.add("https://simple.wikipedia.org/wiki/Calculus");
-        urlList.add("https://simple.wikipedia.org/wiki/IPhone");
-        urlList.add("https://en.wikipedia.org/wiki/Cat");
-        urlList.add("https://en.wikipedia.org/wiki/Yahoo");
+        urlList.add("https://en.wikipedia.org/wiki/Calculus");
+        urlList.add("https://en.wikipedia.org/wiki/IPhone");
+        urlList.add("https://en.wikipedia.org/wiki/IOS");
         urlList.add("https://en.wikipedia.org/wiki/Turtle");
         urlList.add("https://en.wikipedia.org/wiki/Arch_Linux");
-        urlList.add("https://simple.wikipedia.org/wiki/Microsoft_Windows");
-        urlList.add("https://simple.wikipedia.org/wiki/Trigonometric_functions");
-        urlList.add("https://simple.wikipedia.org/wiki/Dog");
-        urlList.add("https://simple.wikipedia.org/wiki/Fish");
+        urlList.add("https://en.wikipedia.org/wiki/Microsoft_Windows");
+        urlList.add("https://en.wikipedia.org/wiki/Trigonometric_functions");
+        urlList.add("https://en.wikipedia.org/wiki/Doug_Lea");
+        urlList.add("https://en.wikipedia.org/wiki/Shave");
         System.out.println(urlList.size());
         DocumentList<ArrayList<String>> dList = new Parser(urlList).getDocList();
 
@@ -100,8 +95,7 @@ public class CosineTest {
 
         }
 
-        Collections.sort(vectorA, Collections.reverseOrder());
-        Collections.sort(vectorB, Collections.reverseOrder());
+
         CosineSimilarity cosineSimilarity = new CosineSimilarity(vectorA, vectorB);
         System.out.println("cosineSimilarity:  " + cosineSimilarity.similarity());
 
@@ -115,6 +109,9 @@ public class CosineTest {
 }
 
   /*
+      DecimalFormat df = new DecimalFormat("0");
+      df.setMaximumFractionDigits(20);
+
      Parser parser  = new Parser(urlList.get(0));
 
      HashTable ht = new HTFactory(parser, dList).getHashtable();

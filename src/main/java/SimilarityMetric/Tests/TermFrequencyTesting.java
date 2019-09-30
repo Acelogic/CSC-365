@@ -13,9 +13,9 @@ import java.util.*;
 public class TermFrequencyTesting {
     public static void main(String[] args) throws IOException {
         ArrayList<String> urlList = new ArrayList<>();
-        urlList.add("https://simple.wikipedia.org/wiki/Google");
         urlList.add("https://simple.wikipedia.org/wiki/Android_(operating_system)");
-        urlList.add("https://simple.wikipedia.org/wiki/Apple_Inc.");
+        urlList.add("https://simple.wikipedia.org/wiki/Android_(operating_system)");
+     /*   urlList.add("https://simple.wikipedia.org/wiki/Apple_Inc.");
         urlList.add("https://simple.wikipedia.org/wiki/Nintendo");
         urlList.add("https://simple.wikipedia.org/wiki/Shave");
         urlList.add("https://simple.wikipedia.org/wiki/Mario");
@@ -32,7 +32,7 @@ public class TermFrequencyTesting {
         urlList.add("https://simple.wikipedia.org/wiki/Cat");
         urlList.add("https://simple.wikipedia.org/wiki/Fish");
         urlList.add("https://simple.wikipedia.org/wiki/Lion");
-        urlList.add("https://simple.wikipedia.org/wiki/Bird");
+        urlList.add("https://simple.wikipedia.org/wiki/Bird");*/
 
 
         Parser dListParser = new Parser(urlList);
@@ -41,7 +41,7 @@ public class TermFrequencyTesting {
         DecimalFormat df = new DecimalFormat("0");
         df.setMaximumFractionDigits(8);
 
-        String term = "is";
+        String term = "mario";
 
         for (int i = 0; i < urlList.size(); i++) {
             System.out.println("===== Metric " + (i+1) + " ===");

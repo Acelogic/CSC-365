@@ -23,9 +23,14 @@ public class CosineSimilarity {
 
         // Checks Size of Vectors and Make the vector of the smallest size the iterator of the dot prod/magnitude loops
         if (VectA.size() > VectB.size()) {
-            iterationLimit = VectB.size();
 
-            for (int i = 0; i < iterationLimit; i++) //docVector1 and docVector2 must be of same length
+            final double index = VectA.size() - VectB.size();
+            for (int j = 0; j < index; j++) {
+                VectB.add(0.0);
+            }
+
+
+            for (int i = 0; i < VectA.size(); i++) //docVector1 and docVector2 must be of same length
             {
 
                 dotProduct += VectA.get(i) * VectB.get(i);  // (a.b) + (a1*b1)+(a2*b2)+ ...
@@ -33,9 +38,24 @@ public class CosineSimilarity {
                 magnitude2 += Math.pow(VectB.get(i), 2); //    (b)^2 + (b1)^2 + (b2)^2 + (b3)^2 + ...
 
             }
+        } else if (VectA.size() < VectB.size()) {
+
+            final double index = VectB.size() - VectA.size();
+            for (int j = 0; j < index; j++) {
+                VectA.add(0.0);
+            }
+
+            for (int i = 0; i < VectB.size(); i++) //docVector1 and docVector2 must be of same length
+            {
+
+                dotProduct += VectA.get(i) * VectB.get(i);  // (a.b) + (a1*b1)+(a2*b2)+ ...
+                magnitude1 += Math.pow(VectA.get(i), 2);  //   (a)^2 + (a1)^2 + (a2)^2 + (a3)^2 + ...
+                magnitude2 += Math.pow(VectB.get(i), 2); //    (b)^2 + (b1)^2 + (b2)^2 + (b3)^2 + ...
+
+            }
+
         } else {
-            iterationLimit = VectA.size();
-            for (int i = 0; i < iterationLimit; i++) //docVector1 and docVector2 must be of same length
+            for (int i = 0; i < VectA.size(); i++) //docVector1 and docVector2 must be of same length
             {
 
                 dotProduct += VectA.get(i) * VectB.get(i);  // (a.b) + (a1*b1)+(a2*b2)+ ...
