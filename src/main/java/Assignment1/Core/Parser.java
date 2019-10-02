@@ -1,16 +1,17 @@
 
-package Assignment1;
+package Assignment1.Core;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
 import java.io.IOException;
-import java.lang.reflect.Array;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class Parser {
+public class Parser implements Serializable {
 
     private ArrayList<String> wordList;
     private ArrayList<String> urlList;
@@ -24,7 +25,7 @@ public class Parser {
 
     }
 
-    public Parser(ArrayList<String> urlList) throws IOException{
+    public Parser(ArrayList<String> urlList) throws IOException {
         this.urlList = urlList;
         populateDocList();
     }
@@ -36,7 +37,7 @@ public class Parser {
         wordList = new ArrayList<>(Arrays.asList(termsList.text().split("[^a-zA-Z]+"))); // \\W+
     }
 
-    private void populateDocList() throws IOException{
+    private void populateDocList() throws IOException {
         DocumentList<ArrayList<String>> dList = new DocumentList<>();
         for(String url: urlList) {
             Document webDoc = Jsoup.connect(url).userAgent("Mozilla").get();//List of words/terms
@@ -45,6 +46,12 @@ public class Parser {
         }
         documentList = dList;
     }
+
+    @Override
+    public String toString() {
+        return url.substring(30);
+    }
+
     public ArrayList<String> getWordList(){
         return wordList;
     }

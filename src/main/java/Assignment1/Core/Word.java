@@ -1,8 +1,10 @@
-package Assignment1;
+package Assignment1.Core;
 
-public class Word {
+import java.io.Serializable;
 
-    public  String word;
+public class Word implements Serializable {
+
+    public String word;
     public double weight;
 
     public Word(String word, double weight) {

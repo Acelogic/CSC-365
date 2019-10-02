@@ -1,38 +1,36 @@
 package SimilarityMetric.Tests;
 
-import Assignment1.DocumentList;
-import Assignment1.HashTable;
-import Assignment1.Parser;
-import Assignment1.Word;
+import Assignment1.Core.DocumentList;
+import Assignment1.Core.Parser;
 import SimilarityMetric.TFIDF;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
 
 public class TermFrequencyTesting {
     public static void main(String[] args) throws IOException {
         ArrayList<String> urlList = new ArrayList<>();
-        urlList.add("https://simple.wikipedia.org/wiki/Android_(operating_system)");
-        urlList.add("https://simple.wikipedia.org/wiki/Android_(operating_system)");
-     /*   urlList.add("https://simple.wikipedia.org/wiki/Apple_Inc.");
-        urlList.add("https://simple.wikipedia.org/wiki/Nintendo");
-        urlList.add("https://simple.wikipedia.org/wiki/Shave");
-        urlList.add("https://simple.wikipedia.org/wiki/Mario");
-        urlList.add("https://simple.wikipedia.org/wiki/Sonic_the_Hedgehog");
-        urlList.add("https://simple.wikipedia.org/wiki/Linux");
-        urlList.add("https://simple.wikipedia.org/wiki/Arch_Linux");
-        urlList.add("https://simple.wikipedia.org/wiki/Microsoft_Windows");
-        urlList.add("https://simple.wikipedia.org/wiki/IPhone");
-        urlList.add("https://simple.wikipedia.org/wiki/Trigonometric_functions");
-        urlList.add("https://simple.wikipedia.org/wiki/Calculus");
-        urlList.add("https://simple.wikipedia.org/wiki/space");
-        urlList.add("https://simple.wikipedia.org/wiki/Turtle");
-        urlList.add("https://simple.wikipedia.org/wiki/Dog");
-        urlList.add("https://simple.wikipedia.org/wiki/Cat");
-        urlList.add("https://simple.wikipedia.org/wiki/Fish");
-        urlList.add("https://simple.wikipedia.org/wiki/Lion");
-        urlList.add("https://simple.wikipedia.org/wiki/Bird");*/
+        urlList.add("https://en.wikipedia.org/wiki/Android_(operating_system)");
+        urlList.add("https://en.wikipedia.org/wiki/Apple_Inc.");
+        urlList.add("https://en.wikipedia.org/wiki/Nintendo");
+        urlList.add("https://en.wikipedia.org/wiki/Mario");
+        urlList.add("https://en.wikipedia.org/wiki/Linux");
+        urlList.add("https://en.wikipedia.org/wiki/Google");
+        urlList.add("https://en.wikipedia.org/wiki/Google_Play");
+        urlList.add("https://en.wikipedia.org/wiki/Space");
+        urlList.add("https://en.wikipedia.org/wiki/World_War_1");
+        urlList.add("https://en.wikipedia.org/wiki/Thinkpad");
+        urlList.add("https://en.wikipedia.org/wiki/Tiger");
+        urlList.add("https://en.wikipedia.org/wiki/Calculus");
+        urlList.add("https://en.wikipedia.org/wiki/IPhone");
+        urlList.add("https://en.wikipedia.org/wiki/IOS");
+        urlList.add("https://en.wikipedia.org/wiki/Turtle");
+        urlList.add("https://en.wikipedia.org/wiki/Arch_Linux");
+        urlList.add("https://en.wikipedia.org/wiki/Microsoft_Windows");
+        urlList.add("https://en.wikipedia.org/wiki/Trigonometric_functions");
+        urlList.add("https://en.wikipedia.org/wiki/Doug_Lea");
+        urlList.add("https://en.wikipedia.org/wiki/Shave");
 
 
         Parser dListParser = new Parser(urlList);

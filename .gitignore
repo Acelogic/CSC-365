@@ -1,3 +1,5 @@
+
+*.txt
  
 #Compiled class file
 *.class
@@ -7,7 +9,6 @@
 
 # BlueJ files
 *.ctxt
-
 #Shell Files
 installTmux.sh
 OpenIntellij.sh
@@ -50,5 +51,5 @@ out/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 #Things to Keep
-
+!ControlFile.txt
 !.gitignore

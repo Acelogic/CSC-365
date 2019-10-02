@@ -1,12 +1,9 @@
 package SimilarityMetric;
 
-import Assignment1.DocumentList;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
+import Assignment1.Core.DocumentList;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class TFIDF {
