@@ -1,4 +1,4 @@
-*.attach
+*.attach*
 *.txt
  
 #Compiled class file
